@@ -115,9 +115,9 @@ int main(int argc, char** argv) {
 
 		redis.pipeset({
 			{KEY_TIMESTAMP, std::to_string(t_curr)},
-			{KEY_POS_RIGID_BODIES, RedisClient::encodeEigenMatrix(pos_rigid_bodies)},
-			{KEY_ORI_RIGID_BODIES, RedisClient::encodeEigenMatrix(ori_rigid_bodies)},
-			{KEY_POS_SINGLE_MARKERS, RedisClient::encodeEigenMatrix(pos_single_markers)}
+			{KEY_POS_RIGID_BODIES, RedisClient::encodeEigenMatrixJSON(pos_rigid_bodies)},
+			{KEY_ORI_RIGID_BODIES, RedisClient::encodeEigenMatrixJSON(ori_rigid_bodies)},
+			{KEY_POS_SINGLE_MARKERS, RedisClient::encodeEigenMatrixJSON(pos_single_markers)}
 		});
 	}
 
