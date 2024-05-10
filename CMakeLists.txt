@@ -1,8 +1,15 @@
 cmake_minimum_required(VERSION 3.1)
 
 project(optitrack_redis_driver)
-set(CMAKE_CXX_STANDARD 14)
+# set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
+	SET(CMAKE_CXX_FLAGS "-std=c++17 -I/usr/include -I/usr/local/include -O3")
+elseif (${CMAKE_SYSTEM_NAME} MATCHES Darwin)
+	SET(CMAKE_CXX_FLAGS "-std=c++17 -I/usr/include -I/usr/local/include -I/opt/homebrew/include -w -O3")
+endif()
+SET(CMAKE_BUILD_TYPE "Release")  
 
 # Set common source
 set(OPTITRACK_COMMON_SOURCE
